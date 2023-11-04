@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 var returnedTitle = "";
 
@@ -6,6 +6,9 @@ const LinkInputForm = () => {
   const [title, setTitle] = useState('');
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [audioUrl, setAudioUrl] = useState(null);
+  const [videoId, setVideoId] = useState('');
+  const audioRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,6 +16,10 @@ const LinkInputForm = () => {
     setLoading(true); // Set loading to true when submitting
     setSubmitted(true);
     const link = title;
+    const parsedUrl = new URL(link);
+    const searchParams = new URLSearchParams(parsedUrl.search);
+    const videoId = searchParams.get("v");
+    setVideoId(videoId);
 
     // Send a POST request to api-endpoint.com with the input text as JSON
     const postData = { "link": link }; // Update the key to 'title'
@@ -35,6 +42,7 @@ const LinkInputForm = () => {
         console.log('POST request successful');
         console.log(responseData.title);
         returnedTitle = responseData.title;
+        setAudioUrl("https://kxwh62mz-3000.uks1.devtunnels.ms/audio-stream?url=" + videoId);
       } else {
         console.error('POST request failed');
       }
@@ -43,6 +51,7 @@ const LinkInputForm = () => {
       returnedTitle = "Failed";
     } finally {
       setLoading(false);
+      setTitle(" ");
     }
   };
 
@@ -70,10 +79,19 @@ const LinkInputForm = () => {
       ) : (
         title && (
           <div className="output-container">
+            <div className='scrolling-container'>
             <h3></h3>
-            <p>{returnedTitle}</p>
+            <div className="scrolling-text"><p>{returnedTitle}</p>
+            </div>
+            </div>
+            
           </div>
         )
+      )}
+      {audioUrl && (
+        <audio ref={audioRef} controls autoPlay style={{ display: 'none' }}>
+          <source src={audioUrl} type="audio/mpeg" />
+        </audio>
       )}
     </div>
   );

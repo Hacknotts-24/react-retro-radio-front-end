@@ -134,19 +134,31 @@
 .scrolling-container {
   white-space: nowrap;
   overflow: hidden;
-  width: 5ch; /* Set the width to show only 5 characters */
+  width: 100%; /* Set the width to show only 5 characters */
 }
 
 .scrolling-text {
-  animation: scrollLeft 3s linear infinite;
+  animation: scrollLeft 10s linear infinite;
 }
 
 @keyframes scrollLeft {
   0% {
-      transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  30% {
+    transform: translateX(0%);
+  }
+  60% {
+    transform: translateX(-100%);
+  }
+  90% {
+    transform: translateX(-200%); /* Adjust this value according to your text length */
+  }
+  95% {
+    transform: translateX(-250%); /* Adjust this value according to your text length */
   }
   100% {
-      transform: translateX(0%);
+    transform: translateX(-300%); /* Adjust this value according to your text length */
   }
 }
 
