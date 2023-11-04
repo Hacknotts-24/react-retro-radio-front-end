@@ -137,7 +137,11 @@ input {
   border-color: transparent;
   height: 20px;
   width: 160px;
-  color: #CCC;
+  color: #FFFFFF;
+  outline: none;
+  font-size: 25px;
+  padding: 10px;
+  font-family: 'Pixel';
 }
 
 button {
@@ -157,7 +161,12 @@ button {
   position: relative;
   overflow: hidden;
   background-color: #00f; /* Bright blue background color */
-  padding: 10px; /* Add padding for better visibility */
+  padding: 5px; /* Add padding for better visibility */
+  border: 10px;
+  width: 600px;
+  white-space: nowrap;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .output-container::after {
@@ -266,7 +275,3 @@ button {
     transform: rotate(360deg);
   }
 }
-
-
-
-
