@@ -43,6 +43,7 @@ const LinkInputForm = () => {
         console.log(responseData.title);
         returnedTitle = responseData.title;
         setAudioUrl("https://kxwh62mz-3000.uks1.devtunnels.ms/audio-stream?url=" + videoId);
+        console.log("Set new audio url");
       } else {
         console.error('POST request failed');
       }
@@ -89,7 +90,7 @@ const LinkInputForm = () => {
         )
       )}
       {audioUrl && (
-        <audio ref={audioRef} controls autoPlay style={{ display: 'none' }}>
+        <audio ref={audioRef} controls autoPlay style={{ display: 'none' }} key={audioUrl}>
           <source src={audioUrl} type="audio/mpeg" />
         </audio>
       )}
