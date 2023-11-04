@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test React Components</title>
+</head>
+<body>
+  <!-- Include React and ReactDOM libraries -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!-- Include Babel library for JSX transformation -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- Include your React app's JavaScript file -->
+  <script src="%PUBLIC_URL%/static/js/main.js"></script>
+  
+  <!-- Create a root container for your React components -->
+  <div id="root"></div>
+
+
+
+<!-- Render your React components -->
+<script type="text/babel">
+    // Import your React components here
+    import RetroRadio from './react-front-end/react-rr/src/retroradio.js'; // Replace with the actual path
+    import AudioWaveform from './react-front-end/react-rr/src/audioWaveform.js'; // Replace with the actual path
+  
+    const rootElement = document.getElementById('root');
+    ReactDOM.render(<RetroRadio />, rootElement);
+  </script>
+  
