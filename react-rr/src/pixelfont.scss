@@ -1,0 +1,635 @@
+// $font-size: 3px;
+$sizes: (
+    "xsmall": 1px, 
+    "small": 2px, 
+    "medium": 3px, 
+    "large": 4px, 
+    "xlarge": 5px);
+
+$colors: (
+    "black": #000, 
+    "white": #FFF, 
+    "red": #C00, 
+    "green": #0C0,
+    "blue": #00C);
+
+.pixelated{
+    color: transparent;
+    user-select: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.word {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+@each $color-name, $font-color in $colors {
+    @each $size-name, $font-size in $sizes {
+        .#{$size-name} {
+            div.letter-container {
+                display: block;
+                width: 4*$font-size;
+                padding-right: $font-size;
+                height: 5*$font-size;
+                margin-bottom: $font-size;
+        
+                &.i {width: $font-size;}
+                &.l {width: 3*$font-size;}
+                &.m {width: 5*$font-size;}
+                &.t {width: 3*$font-size;}
+                &.w {width: 5*$font-size;}
+                &.x {width: 3*$font-size;}
+                &.space {width: 3*$font-size;}
+                &.dot {width: $font-size;}
+                &.comma {width: 2*$font-size;}
+                &.collon {width: 3*$font-size;}
+            }
+            
+            div.letter {
+                display: block;
+                width: $font-size;
+                height: $font-size;
+            }
+
+            &.#{$color-name} {
+                .letter.a {
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        3*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color,
+                        3*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.b {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color;
+                }
+
+                .letter.c {
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.d {
+                    background: $font-color;
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        3*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color;
+                }
+
+                .letter.e {
+                    background: $font-color;
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.f {
+                    background: $font-color;
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color;
+                }
+
+                .letter.g {
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color,
+                        3*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color;
+                }
+
+                .letter.h {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        3*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color,
+                        3*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.i {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.j {
+                    box-shadow:
+                        3*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        3*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color;
+                }
+
+                .letter.k {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 1*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 3*$font-size 0 $font-color,
+                        3*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.l {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.m {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 1*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        4*$font-size 0*$font-size 0 $font-color,
+                        4*$font-size 1*$font-size 0 $font-color,
+                        4*$font-size 2*$font-size 0 $font-color,
+                        4*$font-size 3*$font-size 0 $font-color,
+                        4*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.n {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 1*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        3*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color,
+                        3*$font-size 4*$font-size 0 $font-color,
+                        ;
+                }
+
+                .letter.o {
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        3*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color;
+                }
+
+                .letter.p {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color;
+                }
+
+                .letter.q {
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        3*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color,
+                        2*$font-size 3*$font-size 0 $font-color,
+                        3*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.r {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 3*$font-size 0 $font-color,
+                        3*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.s {
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        ;
+                }
+
+                .letter.t {
+                    background: $font-color;
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        1*$font-size 1*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        1*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.u {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        3*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color,
+                        3*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.v {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 1*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 3*$font-size 0 $font-color;
+                }
+
+                .letter.w {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 3*$font-size 0 $font-color,
+                        3*$font-size 4*$font-size 0 $font-color,
+                        4*$font-size 0*$font-size 0 $font-color,
+                        4*$font-size 1*$font-size 0 $font-color,
+                        4*$font-size 2*$font-size 0 $font-color,
+                        4*$font-size 3*$font-size 0 $font-color;
+                }
+
+                .letter.x {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 1*$font-size 0 $font-color,
+                        2*$font-size 3*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.y {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 1*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        1*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.z {
+                    background: $font-color;
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        1*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.dot {
+                    box-shadow:
+                        0*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.comma {
+                    box-shadow:
+                        0*$font-size 5*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.exclemation {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.question {
+                    box-shadow:
+                        1*$font-size -1*$font-size 0 $font-color,
+                        2*$font-size -1*$font-size 0 $font-color,
+                        0*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.zero {
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        3*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color,
+                        2*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color;
+                }
+
+                .letter.one {
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        1*$font-size 1*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        1*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.two {
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        1*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.three {
+                    background: $font-color;
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 1*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.four {
+                    background: $font-color;
+                    box-shadow:
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 3*$font-size 0 $font-color,
+                        2*$font-size 3*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color;
+                }
+
+                .letter.five {
+                    background: $font-color;
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color,
+                        0*$font-size 4*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.six {
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        0*$font-size 2*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color;
+                }
+
+                .letter.seven {
+                    background: $font-color;
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 0*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        1*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.eight {
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color,
+                        0*$font-size 3*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color;
+                }
+
+                .letter.nine {
+                    box-shadow:
+                        1*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        0*$font-size 1*$font-size 0 $font-color,
+                        3*$font-size 1*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 3*$font-size 0 $font-color,
+                        1*$font-size 4*$font-size 0 $font-color,
+                        2*$font-size 4*$font-size 0 $font-color;
+                }
+
+                .letter.apostrove {
+                    background: $font-color;
+                    box-shadow: 0*$font-size 1*$font-size 0 $font-color;
+                }
+
+                .letter.dapostrove {
+                    background: $font-color;
+                    box-shadow: 
+                        0*$font-size 1*$font-size 0 $font-color,
+                        2*$font-size 0*$font-size 0 $font-color,
+                        2*$font-size 1*$font-size 0 $font-color;
+                }
+
+                .letter.dash {
+                    box-shadow:
+                        0*$font-size 2*$font-size 0 $font-color,
+                        1*$font-size 2*$font-size 0 $font-color,
+                        2*$font-size 2*$font-size 0 $font-color,
+                        3*$font-size 2*$font-size 0 $font-color;
+                }
+
+                .letter.collon {
+                    box-shadow:
+                      1*$font-size 1*$font-size 0 $font-color,
+                      1*$font-size 3*$font-size 0 $font-color;
+                  }
+            }
+        }
+    }
+}

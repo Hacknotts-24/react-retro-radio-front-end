@@ -1,6 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'Pixel';
+  src: url('PublicPixel-z84yD.ttf') format('truetype');
+  /* Add more src entries for different formats if needed */
+}
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Pixel', 'Pixelify Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -8,6 +17,10 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Pixel', 'Pixelify Sans', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace,;
+}
+
+.form-control:focus, .form-control:active {
+  background: transparent;
 }

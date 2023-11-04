@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 
+var returnedTitle = "";
+
 const LinkInputForm = () => {
-  const [link, setLink] = useState('');
   const [title, setTitle] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("button was pressed with data " + title)
-
-    const link = title
+    setLoading(true); // Set loading to true when submitting
+    setSubmitted(true);
+    const link = title;
 
     // Send a POST request to api-endpoint.com with the input text as JSON
     const postData = { "link": link }; // Update the key to 'title'
@@ -27,19 +31,19 @@ const LinkInputForm = () => {
 
       // Handle the response if needed
       if (response.ok) {
+        const responseData = await response.json();
         console.log('POST request successful');
+        console.log(responseData.title)
+        returnedTitle = responseData.title
       } else {
         console.error('POST request failed');
       }
     } catch (error) {
       console.error('Error sending POST request:', error);
+      returnedTitle = "Failed"
+    } finally {
+        setLoading(false);
     }
-  };
-
-  const extractLinkTitle = async (link) => {
-    // This is a basic example, you might want to use a more robust solution.
-    const matches = link.match(/<title>(.*?)<\/title>/i);
-    return matches ? matches[1] : 'No title found';
   };
 
   return (
@@ -52,15 +56,19 @@ const LinkInputForm = () => {
             value={title} // Update the value and onChange accordingly
             onChange={(e) => setTitle(e.target.value)}
           />
+          <button type="submit" >Submit</button>
         </label>
-        <button type="submit">Submit</button>
       </form>
 
-      {title && (
-        <div className="output-container">
-          <h3>Title:</h3>
-          <p>{title}</p>
-        </div>
+      {loading ? ( // Check if loading is true
+        <p>Connecting...</p>
+      ) : (
+        title && (
+          <div className="output-container">
+            <h3></h3>
+            <p>{returnedTitle}</p>
+          </div>
+        )
       )}
     </div>
   );

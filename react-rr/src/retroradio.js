@@ -1,13 +1,13 @@
 import React from 'react';
-import audioWaveform from './audioWaveform'; // Adjust the import path
+import AudioWaveform from './react-front-end/react-rr/src/audioWaveform.js';
 
-function App() {
+function RetroRadio() {
   return (
-    <div className="App">
+    <div className="waveform">
       <h1>Audio Waveform Display</h1>
-      <audioWaveform />
+      <AudioWaveform />
     </div>
   );
 }
 
-export default App;
+export default RetroRadio;
