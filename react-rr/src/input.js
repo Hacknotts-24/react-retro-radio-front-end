@@ -71,7 +71,7 @@ const LinkInputForm = () => {
             <div className="scrolling-text">{title}
             </div>
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" id="uniqueEditButton">Submit</button>
         </label>
       </form>
   
