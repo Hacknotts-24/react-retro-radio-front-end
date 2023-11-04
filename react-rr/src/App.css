@@ -131,6 +131,24 @@
   }
 }
 
+.scrolling-container {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 5ch; /* Set the width to show only 5 characters */
+}
+
+.scrolling-text {
+  animation: scrollLeft 3s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+      transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(0%);
+  }
+}
 
 input {
   background-color: transparent;
@@ -142,6 +160,7 @@ input {
   font-size: 25px;
   padding: 10px;
   font-family: 'Pixel';
+  opacity: 0;
 }
 
 button {

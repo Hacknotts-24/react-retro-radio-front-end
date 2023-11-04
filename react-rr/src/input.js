@@ -9,7 +9,7 @@ const LinkInputForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("button was pressed with data " + title)
+    console.log("button was pressed with data " + title);
     setLoading(true); // Set loading to true when submitting
     setSubmitted(true);
     const link = title;
@@ -33,16 +33,16 @@ const LinkInputForm = () => {
       if (response.ok) {
         const responseData = await response.json();
         console.log('POST request successful');
-        console.log(responseData.title)
-        returnedTitle = responseData.title
+        console.log(responseData.title);
+        returnedTitle = responseData.title;
       } else {
         console.error('POST request failed');
       }
     } catch (error) {
       console.error('Error sending POST request:', error);
-      returnedTitle = "Failed"
+      returnedTitle = "Failed";
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
   };
 
@@ -50,17 +50,22 @@ const LinkInputForm = () => {
     <div className='output-container'>
       <form onSubmit={handleSubmit}>
         <label>
-          Enter Title: {/* Update the label text */}
+          Enter Title:
           <input
             type="text"
-            value={title} // Update the value and onChange accordingly
+            id="mainInput"
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <button type="submit" >Submit</button>
+          <div className="scrolling-container">
+            <div className="scrolling-text">{title}
+            </div>
+          </div>
+          <button type="submit">Submit</button>
         </label>
       </form>
-
-      {loading ? ( // Check if loading is true
+  
+      {loading ? (
         <p>Connecting...</p>
       ) : (
         title && (
@@ -72,6 +77,6 @@ const LinkInputForm = () => {
       )}
     </div>
   );
-};
+  };
 
 export default LinkInputForm;
