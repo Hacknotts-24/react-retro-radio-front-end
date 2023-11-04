@@ -1,0 +1,37 @@
+import React, { useRef, useEffect } from 'react';
+import WaveSurfer from 'wavesurfer.js';
+import 'wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js';
+
+function App() {
+  const waveformRef = useRef(null);
+  const wavesurfer = useRef(null);
+
+  const audioUrl = 'https://file-examples.com/wp-content/storage/2017/11/file_example_MP3_1MG.mp3'; // Replace with your audio file URL
+
+  useEffect(() => {
+    wavesurfer.current = WaveSurfer.create({
+      container: waveformRef.current,
+      waveColor: 'violet',
+      progressColor: 'purple',
+    });
+
+    wavesurfer.current.load(audioUrl);
+
+    wavesurfer.current.addPlugin(WaveSurfer.timeline.create({
+      container: waveformRef.current,
+    }));
+
+    return () => {
+      wavesurfer.current.destroy();
+    };
+  }, [audioUrl]);
+
+  return (
+    <div className="App">
+      <h1>Audio Waveform Display</h1>
+      <div ref={waveformRef}></div>
+    </div>
+  );
+}
+
+export default App;
