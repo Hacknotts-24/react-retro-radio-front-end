@@ -14,7 +14,6 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
   const [submitted, setSubmitted] = useState(false);
   const [audioUrl, setAudioUrl] = useState(null);
   const [videoId, setVideoId] = useState('');
-  const [distortion, setDistortion] = useState(3);
   const audioRef = useRef(null);
 
   const prevIsPlaying = useRef(isPlaying);
@@ -51,11 +50,9 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
     const searchParams = new URLSearchParams(parsedUrl.search);
     const videoId = searchParams.get("v");
     setVideoId(videoId);
-    const distortion = searchParams.get("d");
-    if(distortion != null){
-      setDistortion(distortion);
-    } else{
-      setDistortion(3);
+    let distortion = searchParams.get("d");
+    if(distortion == null){
+      distortion = 3;
     }
 
     // Send a POST request to api-endpoint.com with the input text as JSON
