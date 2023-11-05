@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import imageSrc from './knob.png'; // Tell webpack this JS file uses this image
 
-<<<<<<< HEAD
-function Dial({volume, distortion}) {
-  const altText = 'Kill me'; // Replace with the appropriate alt text
-=======
 function Dial(steps) {
   const altText = 'Dial'; // Replace with the appropriate alt text
   const [rotation, setRotation] = useState(53);
@@ -17,20 +13,21 @@ function Dial(steps) {
       setCounter(0);
     }
 
+    setRotation(53 + (Math.ceil(180/(steps.steps - 1)) * counter));
+    console.log(rotation);
+
     console.log(steps.steps);
     console.log(`Component Clicked: ${counter}`); // You can replace this with your desired action
   };
->>>>>>> refs/remotes/origin/main
 
   return (
     <div onClick={handleClick}>
       <div
         style={{
-          transform: `rotate(${rotation + (180/steps) * counter})`, // Apply the rotation transform
-        }}
-      ></div>
-      <img src={imageSrc} alt={altText} />
-      <h3></h3>
+          transform: `rotate(${rotation}deg)`, // Apply the rotation transform
+        }}> 
+        <img src={imageSrc} alt={altText} />
+      </div>
     </div>
   );
 }
