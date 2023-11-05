@@ -92,7 +92,7 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
     <div className='output-container'>
       <form onSubmit={handleSubmit}>
         <label>
-          Enter Title:
+          Enter Link:
           <input
             type="text"
             id="mainInput"
