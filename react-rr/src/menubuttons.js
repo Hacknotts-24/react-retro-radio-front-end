@@ -10,19 +10,29 @@ const MenuButtons = ({ updateIsPlaying }) => {
     setReset(false); // Ensure reset is false when pausing
   };
 
-  const handleResetClick = () => {
+  const handlePlayClick = () => {
     setReset(true);
     updateIsPlaying(true);
     setPause(false); // Ensure pause is false when resetting
   };
 
+  const handleResetClick = () => {
+    var audioElement = document.getElementById('mp3Audio');
+
+    if (audioElement) {
+      // If it exists, reset the current time to 00:00
+      audioElement.currentTime = 0;
+      setReset(true);
+      updateIsPlaying(true);
+      setPause(false); // Ensure pause is false when resetting
+    }
+  }
+
   return (
     <div>
-      <button onClick={handlePauseClick}>Pause</button>
-      <button onClick={handleResetClick}>Play</button>
-
-      {/* <p>Pause: {pause.toString()}</p>
-      <p>Play: {reset.toString()}</p> */}
+      <button className="btnn" onClick={handlePauseClick}>⏸</button>
+      <button className="btnn" onClick={handlePlayClick}>▶</button>
+      <button className="btnn" onClick={handleResetClick}>↺</button>
     </div>
   );
 };

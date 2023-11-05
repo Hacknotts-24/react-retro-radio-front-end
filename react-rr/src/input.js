@@ -1,6 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 var returnedTitle = "";
+var songName = "";
+var state = "";
+const nowPlayingString = "Now Playing: ";
+const pausedString = "Paused: ";
+
 
 const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
   const [title, setTitle] = useState('');
@@ -28,6 +33,9 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
     if (prevIsPlaying.current !== isPlaying) {
       controlAudioPlayback();
       prevIsPlaying.current = isPlaying;
+
+      
+      state = isPlaying ? pausedString : nowPlayingString  
     }
   }, [isPlaying]);
 
@@ -63,6 +71,8 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
         console.log('POST request successful');
         console.log(responseData.title);
         returnedTitle = responseData.title;
+        songName = responseData.title;
+        state = "Now Playing: "
         setAudioUrl("https://kxwh62mz-3000.uks1.devtunnels.ms/audio-stream?url=" + videoId);
         console.log("Set new audio url");
       } else {
@@ -104,14 +114,14 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
           <div className="output-container">
             <div className='scrolling-container'>
             <h3></h3>
-            <div className="scrolling-text"><p>{returnedTitle}</p>
+                <div className="scrolling-text"><p>{state + returnedTitle}</p>
             </div>
             </div>
           </div>
         )
       )}
       {audioUrl && (
-        <audio ref={audioRef} controls autoPlay style={{ display: 'none' }} key={audioUrl}>
+        <audio id="mp3Audio" ref={audioRef} controls autoPlay style={{ display: 'none' }} key={audioUrl}>
           <source src={audioUrl} type="audio/mpeg" />
         </audio>
       )}
