@@ -1,15 +1,35 @@
-import React, { useState, useRef } from 'react';
-import RandomVisualizer from './Oscilloscope';
+import React, { useState, useRef, useEffect } from 'react';
 
 var returnedTitle = "";
 
-const LinkInputForm = ({ updateIsPlaying }) => {
+const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
   const [title, setTitle] = useState('');
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [audioUrl, setAudioUrl] = useState(null);
   const [videoId, setVideoId] = useState('');
   const audioRef = useRef(null);
+
+  const prevIsPlaying = useRef(isPlaying);
+
+  // Function to play or pause the audio based on the isPlaying prop
+  const controlAudioPlayback = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  };
+
+   // Update the audio playback when isPlaying changes
+   useEffect(() => {
+    if (prevIsPlaying.current !== isPlaying) {
+      controlAudioPlayback();
+      prevIsPlaying.current = isPlaying;
+    }
+  }, [isPlaying]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -73,7 +93,7 @@ const LinkInputForm = ({ updateIsPlaying }) => {
             <div className="scrolling-text">{title}
             </div>
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" id="uniqueEditButton">Submit</button>
         </label>
       </form>
   

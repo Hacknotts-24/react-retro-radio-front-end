@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import LinkInputForm from './input';
 import RandomVisualizer from './Oscilloscope'; // Adjust the import path as needed
 
+import MenuButtons from './menubuttons';
 
 function App() {
   const [isPlaying, setIsPlaying] = useState(false); // State to store the returned title
@@ -18,10 +19,10 @@ function App() {
       <header className="App-header">
         <RandomVisualizer isPlaying={isPlaying}/>
         <p>
-        <LinkInputForm updateIsPlaying={updateIsPlaying}/>
+        <LinkInputForm updateIsPlaying={updateIsPlaying} isPlaying={isPlaying}/>
         </p>
+        <MenuButtons updateIsPlaying={updateIsPlaying}/>
         {knob()}
-
       </header>
     </div>
   );
