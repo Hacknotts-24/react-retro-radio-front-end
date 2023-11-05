@@ -1,5 +1,5 @@
 import React from 'react';
-import AudioWaveform from './react-front-end/react-rr/src/audioWaveform.js';
+import AudioWaveform from './audiowaveform';
 
 function RetroRadio() {
   return (

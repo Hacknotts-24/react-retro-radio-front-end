@@ -1,8 +1,9 @@
 import React, { useState, useRef } from 'react';
+import RandomVisualizer from './Oscilloscope';
 
 var returnedTitle = "";
 
-const LinkInputForm = () => {
+const LinkInputForm = ({ updateIsPlaying }) => {
   const [title, setTitle] = useState('');
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -53,6 +54,7 @@ const LinkInputForm = () => {
     } finally {
       setLoading(false);
       setTitle(" ");
+      updateIsPlaying(true);
     }
   };
 

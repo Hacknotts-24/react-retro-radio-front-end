@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import WaveSurfer from 'wavesurfer.js';
-import 'wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js';
+import { WaveSurfer } from 'wavesurfer-react';
+import RegionsPlugin from "wavesurfer.js/dist/plugin/wavesurfer.regions.min";
+import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline.min";
+import CursorPlugin from "wavesurfer.js/dist/plugin/wavesurfer.cursor.min";
+// import 'wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js';
 
 function AudioWaveform() {
   const waveformRef = useRef(null);
