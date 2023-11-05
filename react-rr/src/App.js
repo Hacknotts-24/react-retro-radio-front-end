@@ -32,7 +32,7 @@ function App() {
             <Dial steps={5}/>
           </div>
           <div className="dial-container-left">
-            <Dial steps={100}/>
+            <Dial steps={10}/>
           </div>
     </div>
   );
