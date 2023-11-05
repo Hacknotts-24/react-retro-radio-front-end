@@ -28,11 +28,31 @@ const MenuButtons = ({ updateIsPlaying }) => {
     }
   }
 
+  const handleVolumeIncrease = () => {
+    var audioElement = document.getElementById('mp3Audio');
+
+    if (audioElement) {
+      // Increase the volume by 10%
+      audioElement.volume = Math.min(1, audioElement.volume + 0.1);
+    }
+  };
+
+  const handleVolumeDecrease = () => {
+    var audioElement = document.getElementById('mp3Audio');
+
+    if (audioElement) {
+      // Decrease the volume by 10%
+      audioElement.volume = Math.max(0, audioElement.volume - 0.1);
+    }
+  };
+
   return (
     <div>
       <button className="btnn" onClick={handlePauseClick}>⏸</button>
       <button className="btnn" onClick={handlePlayClick}>▶</button>
       <button className="btnn" onClick={handleResetClick}>↺</button>
+      <button className="btnn" onClick={handleVolumeIncrease}>🔊</button>
+      <button className="btnn" onClick={handleVolumeDecrease}>🔉</button>
     </div>
   );
 };
