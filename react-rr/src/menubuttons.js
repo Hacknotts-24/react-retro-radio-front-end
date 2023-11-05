@@ -10,7 +10,7 @@ const MenuButtons = ({ updateIsPlaying }) => {
     setReset(false); // Ensure reset is false when pausing
   };
 
-  const handleResetClick = () => {
+  const handlePlayClick = () => {
     setReset(true);
     updateIsPlaying(true);
     setPause(false); // Ensure pause is false when resetting
@@ -19,7 +19,7 @@ const MenuButtons = ({ updateIsPlaying }) => {
   return (
     <div>
       <button className="btnn" onClick={handlePauseClick}>⏸</button>
-      <button className="btnn" onClick={handleResetClick}>▶</button>
+      <button className="btnn" onClick={handlePlayClick}>▶</button>
     </div>
   );
 };
