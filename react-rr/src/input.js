@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import './crt.css';
 
 var returnedTitle = "";
 var songName = "";
@@ -89,7 +90,8 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
   };
 
   return (
-    <div className='output-container'>
+    
+    <div className='output-container-main crt'>
       <form onSubmit={handleSubmit}>
         <label>
           Enter Link:
