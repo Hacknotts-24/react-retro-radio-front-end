@@ -32,7 +32,7 @@ const MenuButtons = ({ updateIsPlaying }) => {
     <div>
       <button className="btnn" onClick={handlePauseClick}>⏸</button>
       <button className="btnn" onClick={handlePlayClick}>▶</button>
-      <button className="btnn" onClick={handleResetClick}>Reset</button>
+      <button className="btnn" onClick={handleResetClick}>↺</button>
     </div>
   );
 };
