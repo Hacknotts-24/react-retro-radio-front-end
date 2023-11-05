@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 var returnedTitle = "";
+var state = "Now Playing: "
 
 const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
   const [title, setTitle] = useState('');
@@ -19,6 +20,7 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
         audioRef.current.play();
       } else {
         audioRef.current.pause();
+        state = "Paused: "
       }
     }
   };
@@ -104,7 +106,8 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
           <div className="output-container">
             <div className='scrolling-container'>
             <h3></h3>
-            <div className="scrolling-text"><p>{returnedTitle}</p>
+            <script>if (updateIsPlaying(false){state="Paused: "} else {state="Now Playing: "}</script>
+            <div className="scrolling-text"><p>{state + returnedTitle}</p>
             </div>
             </div>
           </div>
