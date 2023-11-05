@@ -18,11 +18,8 @@ const MenuButtons = ({ updateIsPlaying }) => {
 
   return (
     <div>
-      <button onClick={handlePauseClick}>Pause</button>
-      <button onClick={handleResetClick}>Play</button>
-
-      {/* <p>Pause: {pause.toString()}</p>
-      <p>Play: {reset.toString()}</p> */}
+      <button className="btnn" onClick={handlePauseClick}>⏸</button>
+      <button className="btnn" onClick={handleResetClick}>▶</button>
     </div>
   );
 };

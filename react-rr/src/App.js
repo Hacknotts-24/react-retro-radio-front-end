@@ -24,16 +24,7 @@ function App() {
         <LinkInputForm updateIsPlaying={updateIsPlaying} isPlaying={isPlaying}/>
         </p>
         <MenuButtons updateIsPlaying={updateIsPlaying}/>
-        {knob()}
       </header>
-    </div>
-  );
-}
-
-function knob() {
-  return (
-    <div className="App-knob">
-      <div id="burst-12"></div>
     </div>
   );
 }

@@ -163,6 +163,19 @@
   }
 }
 
+.btnn {
+  margin: 0.5vw;
+  padding: 2vw;
+  width: 3vw;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  font-size: 2vw;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(199, 119, 53);
+}
+
 input {
   background-color: transparent;
   border-color: transparent;
