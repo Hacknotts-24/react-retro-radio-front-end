@@ -17,7 +17,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <RandomVisualizer isPlaying={isPlaying}/>
+        <div className='visBorder'>
+          <RandomVisualizer isPlaying={isPlaying}/>
+        </div>
         <p>
         <LinkInputForm updateIsPlaying={updateIsPlaying} isPlaying={isPlaying}/>
         </p>

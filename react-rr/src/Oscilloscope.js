@@ -13,7 +13,7 @@ function RandomVisualizer({ isPlaying }) {
       context.fillStyle = 'lightgray';
       context.fillRect(0, 0, canvas.width, canvas.height);
 
-      const gridSize = 0.02 * Math.min(window.innerWidth, window.innerHeight); // Set grid size as a percentage of the screen size
+      const gridSize = 0.05 * Math.min(window.innerWidth, window.innerHeight); // Set grid size as a percentage of the screen size
       context.strokeStyle = 'gray';
 
       for (let x = gridSize; x < canvas.width; x += gridSize) {
@@ -38,7 +38,7 @@ function RandomVisualizer({ isPlaying }) {
       drawGrid();
 
       context.beginPath();
-      context.lineWidth = 4; // Adjust line thickness
+      context.lineWidth = 10; // Adjust line thickness for the red lines (make them thicker)
       context.strokeStyle = 'red';
 
       for (let x = 0; x < canvas.width; x += 20) {
@@ -47,6 +47,8 @@ function RandomVisualizer({ isPlaying }) {
       }
 
       context.stroke();
+
+      context.lineWidth = 2; // Reset the line thickness for the grid lines
 
       if (isPlaying) {
         animationFrameId = requestAnimationFrame(randomData);
