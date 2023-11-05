@@ -1,9 +1,5 @@
 @import "pixelfont.css";
 
-.logoo {
-  margin-top: -5vh;
-}
-
 @keyframes flicker {
   0% {
     opacity: 0.32861;
@@ -198,7 +194,17 @@ input {
 }
 
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #964b00;
+  background-image: url(wood-pattern.png);
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  padding: 4px;
+  color: white;
+
 }
 
 .App-logo {
@@ -322,15 +328,16 @@ input {
 
 
 .App-header {
-  background-color: #964b00;
-  background-image: url(wood-pattern.png);
-  min-height: 100vh;
+  background-color: rgb(199, 130, 81);
+  ;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding-bottom: 1%;
+  border-radius: 4px;
 }
 
 .App-link {
@@ -377,13 +384,46 @@ button {
   box-sizing: border-box;
 }
 
-.dial-container{
+.dial-container-right{
   align-self: center;
-  border-radius: 95%;
+  border-radius: 50%;
   transform: rotate(53deg);
   background-color: #444;
   color: #FFFFFF;
   font-family: 'Pixel';
   overflow: auto;
   box-sizing: border-box;
+  position: absolute;
+  right: 4%;
+  bottom: 1%;
+  
+}
+
+.dial-container-left{
+  align-self: center;
+  border-radius: 50%; 
+  resize: both;
+  transform: rotate(53deg);
+  background-color: #444;
+  color: #FFFFFF;
+  font-family: 'Pixel';
+  overflow: auto;
+  box-sizing: border-box;
+  position: absolute;
+  left: 4%;
+  bottom: 1%;
+  
+}
+
+.main-container {
+  margin: 1%;
+  padding: 0px;
+  width: 98%;
+  align-self: center;
+  border-radius: 1%;
+  box-sizing: border-box;
+  border: 5px solid rgb(183, 121, 27);
+  border-top: 5px solid rgb(155, 108, 27);
+  border-left: 5px solid rgb(148, 105, 27);
+  background-color: rgb(199, 130, 81);
 }

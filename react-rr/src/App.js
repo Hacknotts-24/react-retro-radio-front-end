@@ -16,21 +16,26 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <div>
-          <MyComponent></MyComponent>
-        </div>
-        <div className='visBorder'>
-          <RandomVisualizer isPlaying={isPlaying} />
-        </div>
-        <p>
-          <LinkInputForm updateIsPlaying={updateIsPlaying} isPlaying={isPlaying} />
-        </p>
-        <MenuButtons updateIsPlaying={updateIsPlaying} />
-        <div className="dial-container">
-          <Dial />
-        </div>
-      </header>
+      <div className="main-container">
+        <header className="App-header">
+          <div>
+            <MyComponent></MyComponent>
+          </div>
+          <div className='visBorder'>
+            <RandomVisualizer isPlaying={isPlaying} />
+          </div>
+          <p>
+            <LinkInputForm updateIsPlaying={updateIsPlaying} isPlaying={isPlaying} />
+          </p>
+          <MenuButtons updateIsPlaying={updateIsPlaying} />
+        </header>
+        <div className="dial-container-right">
+            <Dial />
+          </div>
+          <div className="dial-container-left">
+            <Dial />
+          </div>
+      </div>
     </div>
   );
 }
