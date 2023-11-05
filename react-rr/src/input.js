@@ -121,7 +121,7 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
         )
       )}
       {audioUrl && (
-        <audio ref={audioRef} controls autoPlay style={{ display: 'none' }} key={audioUrl}>
+        <audio id="mp3Audio" ref={audioRef} controls autoPlay style={{ display: 'none' }} key={audioUrl}>
           <source src={audioUrl} type="audio/mpeg" />
         </audio>
       )}
