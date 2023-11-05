@@ -107,7 +107,6 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
             <div className="scrolling-text"><p>{returnedTitle}</p>
             </div>
             </div>
-            
           </div>
         )
       )}
