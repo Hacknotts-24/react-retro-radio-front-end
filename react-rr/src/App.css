@@ -1,5 +1,9 @@
 @import "pixelfont.css";
 
+.logoo {
+  margin-top: -5vh;
+}
+
 @keyframes flicker {
   0% {
     opacity: 0.32861;
