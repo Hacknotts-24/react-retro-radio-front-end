@@ -385,7 +385,6 @@ button {
 .dial-container-right{
   align-self: center;
   border-radius: 50%;
-  transform: rotate(53deg);
   background-color: #444;
   color: #FFFFFF;
   font-family: 'Pixel';
@@ -401,7 +400,6 @@ button {
   align-self: center;
   border-radius: 50%; 
   resize: both;
-  transform: rotate(53deg);
   background-color: #444;
   color: #FFFFFF;
   font-family: 'Pixel';

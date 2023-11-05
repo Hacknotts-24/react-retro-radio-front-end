@@ -30,10 +30,10 @@ function App() {
           <MenuButtons updateIsPlaying={updateIsPlaying} />
         </header>
         <div className="dial-container-right">
-            <Dial />
+            <Dial steps={5}/>
           </div>
           <div className="dial-container-left">
-            <Dial />
+            <Dial steps={100}/>
           </div>
       </div>
     </div>

@@ -50,9 +50,17 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
     const searchParams = new URLSearchParams(parsedUrl.search);
     const videoId = searchParams.get("v");
     setVideoId(videoId);
+    let distortion = searchParams.get("d");
+    if(distortion == null){
+      distortion = 3;
+    }
 
     // Send a POST request to api-endpoint.com with the input text as JSON
-    const postData = { "link": link }; // Update the key to 'title'
+    const postData = { 
+      "link": link,
+      "distortion": distortion
+    };
+
     try {
       const response = await fetch('https://kxwh62mz-3000.uks1.devtunnels.ms/youtube', {
         method: 'POST',
@@ -74,7 +82,7 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
         returnedTitle = responseData.title;
         songName = responseData.title;
         state = "Now Playing: "
-        setAudioUrl("https://kxwh62mz-3000.uks1.devtunnels.ms/audio-stream?url=" + videoId);
+        setAudioUrl("https://kxwh62mz-3000.uks1.devtunnels.ms/audio-stream?url=" + videoId + "&distortion=" + distortion);
         console.log("Set new audio url");
       } else {
         console.error('POST request failed');
