@@ -48,7 +48,7 @@ function RandomVisualizer({ isPlaying }) {
 
       x++;
       yValues.shift();
-      yValues.push(canvas.height / 2 + Math.random() * 20 - 10);
+      yValues.push(canvas.height / 3.5 + Math.random() * 300 - 10);
 
       context.stroke();
 
