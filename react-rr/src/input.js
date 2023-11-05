@@ -91,7 +91,7 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
 
   return (
     
-    <div className='output-container-main crt'>
+    <div className='output-container-main crt' style={{height: '200px'}}>
       <form onSubmit={handleSubmit}>
         <label>
           Enter Link:
