@@ -1,9 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
 import LinkInputForm from './input';
 import RandomVisualizer from './Oscilloscope'; // Adjust the import path as needed
-
+import MyComponent from './logo'
 import MenuButtons from './menubuttons';
 
 function App() {
@@ -17,6 +16,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <div>
+          <MyComponent></MyComponent>
+        </div>
         <div className='visBorder'>
           <RandomVisualizer isPlaying={isPlaying}/>
         </div>

@@ -51,8 +51,8 @@ const MenuButtons = ({ updateIsPlaying }) => {
       <button className="btnn" onClick={handlePauseClick}>⏸</button>
       <button className="btnn" onClick={handlePlayClick}>▶</button>
       <button className="btnn" onClick={handleResetClick}>↺</button>
-      <button className="btnn" onClick={handleVolumeIncrease}>🔊</button>
-      <button className="btnn" onClick={handleVolumeDecrease}>🔉</button>
+      <button className="btnn" onClick={handleVolumeIncrease}>+</button>
+      <button className="btnn" onClick={handleVolumeDecrease}>-</button>
     </div>
   );
 };
