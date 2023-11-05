@@ -328,8 +328,6 @@ input {
 
 
 .App-header {
-  background-color: rgb(199, 130, 81);
-  ;
   display: flex;
   flex-direction: column;
   align-items: center;

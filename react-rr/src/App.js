@@ -16,7 +16,6 @@ function App() {
 
   return (
     <div className="App">
-      <div className="main-container">
         <header className="App-header">
           <div>
             <MyComponent></MyComponent>
@@ -35,7 +34,6 @@ function App() {
           <div className="dial-container-left">
             <Dial steps={100}/>
           </div>
-      </div>
     </div>
   );
 }
