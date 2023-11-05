@@ -1,7 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 var returnedTitle = "";
-var state = "Now Playing: "
+var songName = "";
+var state = "";
+const nowPlayingString = "Now Playing: ";
+const pausedString = "Paused: ";
+
 
 const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
   const [title, setTitle] = useState('');
@@ -20,7 +24,6 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
         audioRef.current.play();
       } else {
         audioRef.current.pause();
-        state = "Paused: "
       }
     }
   };
@@ -30,6 +33,9 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
     if (prevIsPlaying.current !== isPlaying) {
       controlAudioPlayback();
       prevIsPlaying.current = isPlaying;
+
+      
+      state = isPlaying ? pausedString : nowPlayingString  
     }
   }, [isPlaying]);
 
@@ -65,6 +71,8 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
         console.log('POST request successful');
         console.log(responseData.title);
         returnedTitle = responseData.title;
+        songName = responseData.title;
+        state = "Now Playing: "
         setAudioUrl("https://kxwh62mz-3000.uks1.devtunnels.ms/audio-stream?url=" + videoId);
         console.log("Set new audio url");
       } else {
@@ -106,8 +114,7 @@ const LinkInputForm = ({ updateIsPlaying, isPlaying }) => {
           <div className="output-container">
             <div className='scrolling-container'>
             <h3></h3>
-            <script>if (updateIsPlaying(false){state="Paused: "} else {state="Now Playing: "}</script>
-            <div className="scrolling-text"><p>{state + returnedTitle}</p>
+                <div className="scrolling-text"><p>{state + returnedTitle}</p>
             </div>
             </div>
           </div>
