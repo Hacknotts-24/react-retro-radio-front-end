@@ -410,5 +410,19 @@ button {
   position: absolute;
   left: 4%;
   bottom: 1%;
-  
+}
+
+.engraving-text {
+  h1{
+    font-weight: 800;
+    font-size: 50px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    background-color: #DAA520;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: rgba(245,245,245,0.5) 3px 5px 1px;
+ }
 }
